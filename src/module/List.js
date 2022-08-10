@@ -2,6 +2,9 @@ import React from 'react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+// import Swal from 'sweetalert2/dist/sweetalert2.js'
+// import 'sweetalert2/src/sweetalert2.scss'
+import { Link } from "react-router-dom";
 import axios from 'axios';
 class listComponent extends React.Component  {
   constructor(props){
@@ -11,11 +14,29 @@ class listComponent extends React.Component  {
     }
   }
 
+  sendDelete(userId)
+  {
+    // url de backend
+    const baseUrl = "http://localhost:8080/employee/delete"    // parameter data post
+    // network
+    axios.post(baseUrl,{
+      id:userId
+    })
+    .then(response =>{
+      if (response.data.success) {
+      }
+    })
+    .catch ( error => {
+      alert("Error 325 ")
+    })
+  }
+
   componentDidMount(){
     axios.get("http://192.168.0.38:8080/employee/list")
     .then(res => {
       const data = res.data.data;
       this.setState({ listEmployee:data });
+      console.log('res z get', res);
     })
     .catch(error => {
       alert(error)
@@ -55,10 +76,10 @@ class listComponent extends React.Component  {
           <td>{data.address}</td>
           <td>{data.phone}</td>
           <td>
-            <button class="btn btn-outline-info "> Edit </button>
+          <Link class="btn btn-outline-info "  to={"/edit/"+data.id} >Edit</Link>
           </td>
           <td>
-            <button class="btn btn-outline-danger "> Delete </button>
+          <button type="submit" class="btn btn-outline-danger" onClick={()=>this.sendDelete(data.id)}>Delete</button>
           </td>
         </tr>
       )

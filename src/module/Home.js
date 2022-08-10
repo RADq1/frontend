@@ -4,7 +4,7 @@ const Home = () => {
 
     <div class="container py-4">
       <div class="row">
-            <List/>
+            {/* <List/> */}
       </div>
     </div>
 

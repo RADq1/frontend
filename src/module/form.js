@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import axios from 'axios';
 
-class EditComponent extends React.Component{
+class FormComponent extends React.Component{
   constructor(props){
     super(props);
     this.state = {
@@ -16,7 +16,7 @@ class EditComponent extends React.Component{
     }
   }
  render(){
-   let userId = 0;
+  //  let userId = 0;
    //let userId = this.props.match.params.employeeId;
    return (
     <div>
@@ -56,19 +56,19 @@ class EditComponent extends React.Component{
 
  sendSave(){
 
-  if (this.state.selectRole==0) {
+  if (this.state.selectRole===0) {
     alert("Uzupełnij pole Role")
   }
-  else if (this.state.campPhone=="") {
+  else if (this.state.campPhone==="") {
      alert("Uzupełnij pole Telefon")
   }
-  else if (this.state.campName=="") {
+  else if (this.state.campName==="") {
      alert("Uzupełnij pole Imie")
   }
-  else if (this.state.campEmail=="") {
+  else if (this.state.campEmail==="") {
      alert("Uzupełnij pole Email")
   }
-  else if (this.state.campAddress=="") {
+  else if (this.state.campAddress==="") {
      alert("Uzupełnij pole Adres")
   }
   else {
@@ -101,4 +101,4 @@ class EditComponent extends React.Component{
 }
 
 
-export default EditComponent;
+export default FormComponent;
