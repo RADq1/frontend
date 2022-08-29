@@ -9,6 +9,9 @@ import List from './module/List';
 import Login from './module/Login';
 import Contact from './module/Contact';
 import AdminPanel from './module/AdminPanel';
+import Student from './module/Student';
+
+import "./Css.css"
 
 function App() {
 
@@ -21,6 +24,7 @@ function App() {
          <Route path="/form" element={<Form/>}/>
          <Route path="/edit/:id" element={<Edit/>}/>
          <Route path="/login" element={<Login/>}/>
+         <Route path="/student" element={<Student/>}/>
          <Route path="/contact" element={<Contact/>}/>
          <Route path="/admin" element={<AdminPanel/>}/>
        </Routes>
